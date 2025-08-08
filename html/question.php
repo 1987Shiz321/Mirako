@@ -2,16 +2,21 @@
 
 require __DIR__.'/../lib/functions.php';
 
-$id = '2';
+$id = escape($_GET['id'] ?? '1');
 
 $data = fetchById($id);
 
+if(!$data) {
+    error404();
+}
+
 $formattedData = generateFormattedData($data);
 
-$question = $formattedData['question'];
-$answers = $formattedData['answers'];
-$correcrAnswer = $formattedData['correctAnswer'];
-$correcrAnswerValue = $answers[$correcrAnswer];
-$explanation = $formattedData['explanation'];
 
-include __DIR__.'/../template/question.tpl.php';
+$assignData = [
+    'id' => $formattedData['id'],
+    'question' => $formattedData['question'],
+    'answers' => $formattedData['answers'],
+];
+
+loadTemplate('question', $assignData);

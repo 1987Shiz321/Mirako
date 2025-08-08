@@ -27,13 +27,13 @@
         <div id="section-correct-answer" class="section">
             <h2>答え</h2>
             <p>
-                <span id="correct-answer"><?php echo $correcrAnswer; ?>. <?php echo $correcrAnswerValue; ?></span><br>
-                <?php echo $explanation; ?>
+                <span id="correct-answer"></span><br>
+                <span id="explanation"></span>
             </p>
         </div>
 
         <div class="section">
-            <a href="index.html">戻る</a>
+            <a href="../index.php">戻る</a>
         </div>
 
     </div>
